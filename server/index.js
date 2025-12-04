@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 const connectDB = require('./config/db');
 const questionRoutes = require('./routes/questionRoutes');
+const paperRoutes = require('./routes/paperRoutes');
 
 // Load config
 dotenv.config();
@@ -18,6 +19,7 @@ app.use(cors()); // Allows frontend to communicate with backend
 
 // Mount the Routes
 app.use('/api/questions', questionRoutes);
+app.use('/api/paper', paperRoutes);
 
 // Basic Route to test server
 app.get('/', (req, res) => {
