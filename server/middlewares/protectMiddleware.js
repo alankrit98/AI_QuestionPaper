@@ -1,6 +1,6 @@
-import jwt from 'jsonwebtoken';
+const jwt = require('jsonwebtoken');
 
-export const protectMiddleware = (req, res, next) => {
+const protectMiddleware = (req, res, next) => {
    const authHeader = req.headers.authorization;
    if (!authHeader || !authHeader.startsWith('Bearer ')) {
        return res.status(401).json({ message: 'Unauthorized: No token provided' });
@@ -15,3 +15,5 @@ export const protectMiddleware = (req, res, next) => {
     }
 
 };
+
+module.exports = { protectMiddleware };
